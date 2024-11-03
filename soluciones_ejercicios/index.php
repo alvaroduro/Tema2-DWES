@@ -59,7 +59,7 @@
                     <h5 class="card-title">Ejercicio 4</h5>
                     <p class="card-text">Escribe un programa que multiplique los 20 primeros números
                         naturales.</p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer4/ejercicio4.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 5-->
