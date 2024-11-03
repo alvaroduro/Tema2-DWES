@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 1</h5>
                     <p class="card-text">Crea dos variables cuyo nombre sea “uno” y “dos” he imprímelas por pantalla. Pon un comentario con el tipo de dato que contienen. </p>
-                    <a href="" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer1/ejercicio1.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 2-->
