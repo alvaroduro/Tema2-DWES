@@ -34,7 +34,7 @@
                     <p class="card-text">Escribe un programa que imprima por pantalla los cuadrados (el
                         número multiplicado por sí mismo) de los 30 primeros números naturales.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer2/ejercicio2.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 3-->
