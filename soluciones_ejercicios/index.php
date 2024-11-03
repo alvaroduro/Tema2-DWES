@@ -45,7 +45,7 @@
                     <p class="card-text">Modifica el ejercicio anterior para que muestre al lado de cada
                         cuadrado si es un número par o impar.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer3/ejercicio3.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
         </div><!--Fin_Fila 1-->
