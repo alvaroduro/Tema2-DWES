@@ -70,7 +70,7 @@
                     <p class="card-text">Imprimir por pantalla la tabla de multiplicar del número pasado en un
                         parámetro GET por la URL.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer5/ejercicio5.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 6-->
