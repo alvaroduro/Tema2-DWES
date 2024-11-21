@@ -37,7 +37,7 @@ parámetro GET por la URL.
         <?php
         //si el número ha sido pasado por la URL
         if(isset($_GET['numero'])) {
-            $numero = (int)$_GET['numero'];
+            $numero = (int)$_GET['numero'];//Convertimos en un entero
 
             //Comprobamos el número
             if($numero <=0) {
