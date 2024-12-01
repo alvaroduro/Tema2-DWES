@@ -1,0 +1,56 @@
+/*Estilos para CRUD Usuarios*/
+#imgPrincipal {
+  width: 200px;
+  margin-right: 15px;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlacesPrincipal {
+    font-size: 20px;
+}
+
+a {
+    font-size: 100px; /* Tamaño del texto */
+    width: 40%;
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Centra el texto dentro del enlace */
+    padding: 10px 20px; /* Espaciado interno */
+}
+
+/* Cambio de color al pasar el cursor */
+a:hover {
+  background-color: rgb(23, 163, 176); /* Cambia el color al pasar el mouse */
+  color: lightgray; /* Cambia el color del texto */
+}
+
+@media (max-width: 700px) {
+  #imgPrincipal {
+    width: 280px;
+    margin-right: 15px;
+  }
+
+  .titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .enlacesPrincipal {
+    display: block;
+    font-size: 25px;
+}
+}
+
+@media (min-width: 500px) {
+    .enlacesPrincipal {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;}
+}

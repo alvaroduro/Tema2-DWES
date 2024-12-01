@@ -27,6 +27,7 @@
                 <div class="p-2 border border-warning w-50 my-1"><a class="nav-link active" aria-current="page" href="Poo/index.php">PDO</a></div>
                 <div class="p-2 border border-warning w-50 my-1"><a class="nav-link active" aria-current="page" href="Poo/index.php">POO</a></div>
                 <div class="p-2 border border-primary w-50 my-1"><a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="PhpPdoCrud/index.php">PHP PDO CRUD</a></div>
+                <div class="p-2 border border-primary w-50 my-1"><a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="Usuarios/index.php">CRUD USUARIOS Apuntes</a></div>
             </div>
         </div>
     </div>
