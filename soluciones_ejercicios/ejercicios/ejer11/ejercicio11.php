@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 11</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,10 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 11</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Un número es bueno si y solo si la suma de sus divisores sin contarse
+            el mismo da ese número. Programa que calcule si un número es bueno o no.</h3>
     </div>
 
     <!--Botones-->
@@ -33,18 +34,32 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
+        $bueno = true;
+        $numero = $_GET['numero'];
+        $sumaDivisores = 0;
+        //Si el número es 0
+        if ($numero <= 0) {
+            $bueno = false;
+        } else {
+            // Encontrar los divisores (excluyendo el número mismo)
+            for ($i = 1; $i <= $numero / 2; $i++) {
+                if ($numero % $i == 0) {
+                    $sumaDivisores += $i;
+                }
+            }
 
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
+            // Verificar si la suma de los divisores es igual al número
+            if ($sumaDivisores === $numero) {
+                $bueno = false;
             }
         }
+
+        if ($bueno) {
+            echo "El número $numero es bueno.";
+        } else {
+            echo "El número $numero no es bueno.";
+        }
+
         ?>
     </div>
 </body>

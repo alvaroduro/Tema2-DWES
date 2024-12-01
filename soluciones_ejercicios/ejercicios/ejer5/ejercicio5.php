@@ -20,7 +20,7 @@
         <?php require '../includes/nav.php'; ?>
         <h3 class="titulo_ejercicio fst-italic">Imprimir por pantalla la tabla de multiplicar del número pasado en un 
 parámetro GET por la URL. 
-
+        </h3>
     </div>
 
     <!--Botones-->

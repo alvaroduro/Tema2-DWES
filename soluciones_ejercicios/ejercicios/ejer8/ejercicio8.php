@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 8</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,12 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 8</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">El factorial de un número entero N es una operación matemática que consiste en
+            multiplicar todos los factores N x (N-1) x (N-2) x ... x 1.
+            Así, el factorial de 5 (escrito como 5!) es igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120</h3>
+
     </div>
 
     <!--Botones-->
@@ -33,18 +36,13 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
-
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
+        $factorial = 5;
+        //Factorial del número 5(5x4x3x2x1 = 120)
+        for ($i=5; $i > 1; $i--) { 
+            $factorial = $factorial * ($i-1);
         }
+        echo "El factorial del número 5! es = <b>".$factorial."</b></br>";
+
         ?>
     </div>
 </body>

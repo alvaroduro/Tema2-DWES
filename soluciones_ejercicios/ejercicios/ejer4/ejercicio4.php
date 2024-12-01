@@ -19,7 +19,7 @@
         <h1>Ejercicio 4</h1>
         <?php require '../includes/nav.php'; ?>
         <h3 class="titulo_ejercicio fst-italic">Escribe un programa que multiplique los 20 primeros números
-            naturales.
+            naturales.</h3>
     </div>
 
     <!--Botones-->

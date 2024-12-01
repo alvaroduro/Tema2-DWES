@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 16</title>
     <!--Incluimos BS-->
-    <?php require '../includes/boostrap.php'; ?>
+    <?php
+
+ require '../includes/boostrap.php'; ?>
     <style>
         #solucionEjer {
             display: none;
@@ -16,9 +18,10 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 16</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Crea un script PHP que tenga tres variables, una tipo array, otra tipo
+        string y otra boleana y que imprima un mensaje según el tipo de variable que sea.</h3>
     </div>
 
     <!--Botones-->
@@ -33,18 +36,15 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
+            //Variables
+            $array = array();
+            $cadena = "";
+            $bool = true;
 
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
-        }
+            //Imprimimos según e tipo de variable
+            echo "tipo de variable array <b>".gettype($array)."</b></br>";
+            echo "tipo de variable cadena <b>".gettype($cadena)."</b></br>";
+            echo "tipo de variable booleano <b>".gettype($bool)."</b></br>";
         ?>
     </div>
 </body>

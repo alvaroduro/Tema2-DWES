@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 18</title>
     <!--Incluimos BS-->
-    <?php require '../includes/boostrap.php'; ?>
+    <?php
+
+    require '../includes/boostrap.php'; ?>
     <style>
         #solucionEjer {
             display: none;
@@ -16,9 +18,13 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 18</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">El cálculo del factorial se realiza en un bucle que va disminuyendo el
+            valor de una variable y multiplicando todos los valores entre sí, como ya hemos
+            visto anteriormente.
+            Aprovechando este patrón puede crear una función que realice la factorial del
+            número que le pasemos por parámetro, ahorrando así líneas de código.</h3>
     </div>
 
     <!--Botones-->
@@ -33,18 +39,19 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
-
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
+        //Funcion
+        function factorial($numero) {
+            //Variables
+            $factorial = $numero;
+            //Factorial del número 5(5x4x3x2x1 = 120)
+        for ($i=$numero; $i > 1; $i--) { 
+            $factorial = $factorial * ($i-1);
         }
+        return "El factorial del número ".$numero." es = <b>".$factorial."</b></br>";
+        //echo "El factorial del número ".$numero." es = <b>".$factorial."</b></br>";
+        };
+
+        echo factorial(6);
         ?>
     </div>
 </body>

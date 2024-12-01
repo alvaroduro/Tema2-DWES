@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 20</title>
     <!--Incluimos BS-->
-    <?php require '../includes/boostrap.php'; ?>
+    <?php
+
+    require '../includes/boostrap.php'; ?>
     <style>
         #solucionEjer {
             display: none;
@@ -16,9 +18,11 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 20</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Utiliza los includes de PHP para tener una estructura html básica y
+            separar el código por el header, body y footer.</h3>
+
     </div>
 
     <!--Botones-->
@@ -31,20 +35,6 @@
     <div class="container text-center my-5 border border-primary w-50 " id="solucionEjer">
         <h4>Solución Ejercicio</h4>
 
-        <!--Solucion Ejercicio-->
-        <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
-
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
-        }
         ?>
     </div>
 </body>

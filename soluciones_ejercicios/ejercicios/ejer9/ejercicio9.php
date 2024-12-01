@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 9</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,9 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 9</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Mostrar todos los números pares que hay entre el 1 y el 100.</h3>
     </div>
 
     <!--Botones-->
@@ -33,18 +33,14 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
-
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
+        echo "Los números del 1 al 100 pares son: ";
+        //Números del 1 al 100
+        for ($i = 1; $i <= 100; $i++) {
+            if ($i % 2 == 0) {
+                echo "<b>" . $i . "</b></br>";
             }
         }
+
         ?>
     </div>
 </body>

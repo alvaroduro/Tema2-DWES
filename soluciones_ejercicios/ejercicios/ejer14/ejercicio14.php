@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 14</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,11 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 14</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Escribe un programa que añada valores a un array mientras que su
+            longitud sea menor a 100 y después que se muestre la información del array por
+            pantalla.</h3>
     </div>
 
     <!--Botones-->
@@ -33,17 +35,19 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
+        //Array
+        $numeros = array();
 
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
+        //Vamos añadiendo valores
+        echo "Rellenamos los números del array</br>";
+        for ($i=0; $i <= 100; $i++) { 
+            $numeros[$i] = $i;
+        }
+
+        echo "Mostramos los números del array</br>";
+
+        for ($i=0; $i < count($numeros); $i++) { 
+            echo $numeros[$i]."</br>";
         }
         ?>
     </div>

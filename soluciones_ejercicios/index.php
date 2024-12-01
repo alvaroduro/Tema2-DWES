@@ -11,6 +11,27 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.php">INICIO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../Poo/index.php">POO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../PDO/index.php">PDO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../PhpPdoCrud/index.php">CRUD TUTORIAL</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <h1 class="text-center my-3">Soluciones Ejercicios Tema 1</h1>
 
     <!--Ejercicios-->
@@ -81,7 +102,7 @@
                     <p class="card-text">Crear un array llamado meses y que almacene el nombre de los doce
                         meses del año. Recorrerlo con FOR para mostrar por pantalla los doce nombres.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer6/ejercicio6.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
         </div><!--Fin_Fila 2-->
@@ -94,7 +115,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 7</h5>
                     <p class="card-text">Igual que el anterior pero utilizando el foreach. </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer7/ejercicio7.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 8-->
@@ -107,7 +128,7 @@
                         Así, el factorial de 5 (escrito como 5!) es igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120
 
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer8/ejercicio8.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 9-->
@@ -117,7 +138,7 @@
                     <h5 class="card-title">Ejercicio 9</h5>
                     <p class="card-text">Mostrar todos los números pares que hay entre el 1 y el 100.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer9/ejercicio9.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
         </div><!--Fin_Fila 3-->
@@ -132,7 +153,7 @@
                     <p class="card-text">Mostrar los números múltiplos de un número pasado por la URL que
                         hay del 1 al 100.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer10/ejercicio10.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 11-->
@@ -143,7 +164,7 @@
                     <p class="card-text">Un número es bueno si y solo si la suma de sus divisores sin contarse
                         el mismo da ese número. Programa que calcule si un número es bueno o no.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer11/ejercicio11.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 12-->
@@ -158,63 +179,23 @@
                         3. Mostrará su longitud.
                         4. Buscar en el vector.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer12/ejercicio12.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
         </div><!--Fin_Fila 4-->
 
         <!---------------------------------------------Fila 5----------------------------------------------------->
         <div class="row align-items-center justify-content-center my-4 w-100">
-            <!--Ejercicio 10-->
-            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
-                <img src="img/php.png" class="card-img-top" alt="ejercicio 10">
-                <div class="card-body">
-                    <h5 class="card-title">Ejercicio 10</h5>
-                    <p class="card-text">Mostrar los números múltiplos de un número pasado por la URL que
-                        hay del 1 al 100.
-                    </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
-                </div>
-            </div>
-            <!--Ejercicio 11-->
-            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2">
-                <img src="img/php.png" class="card-img-top" alt="ejercicio 11">
-                <div class="card-body">
-                    <h5 class="card-title">Ejercicio 11</h5>
-                    <p class="card-text">Un número es bueno si y solo si la suma de sus divisores sin contarse
-                        el mismo da ese número. Programa que calcule si un número es bueno o no.
-                    </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
-                </div>
-            </div>
-            <!--Ejercicio 12-->
-            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
-                <img src="img/php.png" class="card-img-top" alt="ejercicio 12">
-                <div class="card-body">
-                    <h5 class="card-title">Ejercicio 12</h5>
-                    <p class="card-text">Hacer un programa que tenga un array de 5 números enteros y hacer
-                        lo siguiente con él:
-                        1. Recorrerlo y mostrarlo.
-                        2. Ordenarlo y mostrarlo.
-                        3. Mostrará su longitud.
-                        4. Buscar en el vector.
-                    </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
-                </div>
-            </div>
-        </div><!--Fin_Fila 5-->
-
-        <!---------------------------------------------Fila 6----------------------------------------------------->
-        <div class="row align-items-center justify-content-center my-4 w-100">
             <!--Ejercicio 13-->
             <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
-                <img src="img/php.png" class="card-img-top" alt="ejercicio 13">
+                <img src="img/php.png" class="card-img-top" alt="ejercicio 10">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 13</h5>
                     <p class="card-text">Escribe un programa que muestre la dirección IP del usuario que
                         visita nuestra web y si usa Firefox darle la enhorabuena.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer13/ejercicio13.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 14-->
@@ -226,7 +207,7 @@
                         longitud sea menor a 100 y después que se muestre la información del array por
                         pantalla.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer14/ejercicio14.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 15-->
@@ -236,13 +217,14 @@
                     <h5 class="card-title">Ejercicio 15</h5>
                     <p class="card-text">Escribe un programa que compruebe si una variable esta vacía y si está vacía, rellenarla con texto en minúsculas y mostrarlo convertido a mayúsculas
                         en negrita.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer15/ejercicio15.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
-        </div><!--Fin_Fila 6-->
+        </div><!--Fin_Fila 5-->
 
-        <!---------------------------------------------Fila 7----------------------------------------------------->
+        <!---------------------------------------------Fila 6----------------------------------------------------->
         <div class="row align-items-center justify-content-center my-4 w-100">
             <!--Ejercicio 16-->
             <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
@@ -251,8 +233,9 @@
                     <h5 class="card-title">Ejercicio 16</h5>
                     <p class="card-text">Crea un script PHP que tenga tres variables, una tipo array, otra tipo
                         string y otra boleana y que imprima un mensaje según el tipo de variable que sea.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer16/ejercicio16.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 17-->
@@ -260,15 +243,16 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 17">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 17</h5>
-                    <p class="card-text">Crea un array con el contenido de la siguiente tabla:
-                        Frutas Deportes Idiomas
+                    <p class="card-text">Frutas Deportes Idiomas
                         Manzana Futbol Español
                         Naranja Tenis Inglés
                         Sandia Baloncesto Francés
                         Fresa Beisbol Italiano
+
                         Recórrelo y muestra la tabla en HTML con el contenido del array.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer17/ejercicio17.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 18-->
@@ -281,23 +265,23 @@
                         visto anteriormente.
                         Aprovechando este patrón puede crear una función que realice la factorial del
                         número que le pasemos por parámetro, ahorrando así líneas de código.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer18/ejercicio18.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
-        </div><!--Fin_Fila 7-->
+        </div><!--Fin_Fila 6-->
 
-        <!---------------------------------------------Fila 8----------------------------------------------------->
+        <!---------------------------------------------Fila 7----------------------------------------------------->
         <div class="row align-items-center justify-content-center my-4 w-100">
             <!--Ejercicio 19-->
             <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 19">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 19</h5>
-                    <p class="card-text">Utiliza los includes de PHP para tener una estructura html básica y
-                        separar el código por el header, body y footer.
+                    <p class="card-text">Utiliza una función de PHP para mostrar la fecha actual por pantalla.
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer19/ejercicio19.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 20-->
@@ -305,10 +289,11 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 20">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 20</h5>
-                    <p class="card-text">Utiliza la función filter_var para comprobar si el email que nos llega
-                        por la URL es un email valido.
+                    <p class="card-text">Utiliza los includes de PHP para tener una estructura html básica y
+                        separar el código por el header, body y footer.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer20/ejercicio20.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 21-->
@@ -316,25 +301,27 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 21">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 21</h5>
-                    <p class="card-text">Crea una función a la que le pases un número y te saque su tabla de
-                        multiplicar.
+                    <p class="card-text">Utiliza la función filter_var para comprobar si el email que nos llega
+                        por la URL es un email valido.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer21/ejercicio21.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
-        </div><!--Fin_Fila 8-->
+        </div><!--Fin_Fila 7-->
 
-        <!---------------------------------------------Fila 9----------------------------------------------------->
+        <!---------------------------------------------Fila 8----------------------------------------------------->
         <div class="row align-items-center justify-content-center my-4 w-100">
             <!--Ejercicio 22-->
             <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 22">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 22</h5>
-                    <p class="card-text">Modifica el ejercicio anterior para pasarle un parámetro opcional que
-                        nos permita imprimir directamente la tabla en HTML.
+                    <p class="card-text">Crea una función a la que le pases un número y te saque su tabla de
+                        multiplicar.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer22/ejercicio22.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 23-->
@@ -342,16 +329,17 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 23">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 23</h5>
-                    <p class="card-text"> Crea una sesión que vaya aumentando su valor en uno o
+                    <p class="card-text">Crea una sesión que vaya aumentando su valor en uno o
                         disminuyendo en uno en función de si el parámetro GET “counter” está a uno a
                         cero.
+
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer23/ejercicio23.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
             <!--Ejercicio 24-->
             <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
-                <img src="img/php.png" class="card-img-top" alt="ejercicio 24">
+                <img src="img/php.png" class="card-img-top" alt="ejercicio 41">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 24</h5>
                     <p class="card-text">Crea un formulario HTML con los siguientes campos:
@@ -362,7 +350,52 @@
                         - Contraseña
                         - Imagen
                     </p>
-                    <a href="#" class="btn btn-primary">Ir al ejercicio</a>
+                    <a href="ejercicios/ejer24/ejercicio24.php" class="btn btn-primary">Ir al ejercicio</a>
+                </div>
+            </div>
+        </div><!--Fin_Fila 8-->
+
+        <!---------------------------------------------Fila 9----------------------------------------------------->
+        <div class="row align-items-center justify-content-center my-4 w-100">
+            <!--Ejercicio 25-->
+            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
+                <img src="img/php.png" class="card-img-top" alt="ejercicio 25">
+                <div class="card-body">
+                    <h5 class="card-title">Ejercicio 25</h5>
+                    <p class="card-text">Recoge los datos de las variables POST y muéstralos por pantalla en
+                        el caso de que existan y no estén vacíos.
+
+                    </p>
+                    <a href="ejercicios/ejer25/ejercicio25.php" class="btn btn-primary">Ir al ejercicio</a>
+                </div>
+            </div>
+            <!--Ejercicio 26-->
+            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2">
+                <img src="img/php.png" class="card-img-top" alt="ejercicio 26">
+                <div class="card-body">
+                    <h5 class="card-title">Ejercicio 26</h5>
+                    <p class="card-text">Valida el formulario con las siguientes reglas:
+                        - Nombre: Solo puede estar formado por letras y tener una
+                        longitud máxima de 20 caracteres.
+                        - Apellidos: Solo puede estar formado por letras.
+                        - Biografía: No puede estar vacío.
+                        - Email: tiene que ser un email válido.
+                        - Contraseña: Debe tener una longitud mayor que 6 caracteres.
+                        - Imagen: Puede estar vacía.
+                    </p>
+                    <a href="ejercicios/ejer26/ejercicio26.php" class="btn btn-primary">Ir al ejercicio</a>
+                </div>
+            </div>
+            <!--Ejercicio 27-->
+            <div class="card col col-sm-12 col-md-7 col-lg-3 mx-2 p-2">
+                <img src="img/php.png" class="card-img-top" alt="ejercicio 27">
+                <div class="card-body">
+                    <h5 class="card-title">Ejercicio 27</h5>
+                    <p class="card-text">Conéctate a una base de datos MySQL y crea la siguiente tabla
+                        usuarios con los mismos campos que el formulario anterior.
+
+                    </p>
+                    <a href="ejercicios/ejer27/ejercicio27.php" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
             </div>
         </div><!--Fin_Fila 9-->
@@ -474,7 +507,7 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 33">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 33</h5>
-                    <p class="card-text">Crea un login de usuarios. 
+                    <p class="card-text">Crea un login de usuarios.
                     </p>
                     <a href="#" class="btn btn-primary">Ir al ejercicio</a>
                 </div>
@@ -484,7 +517,7 @@
                 <img src="img/php.png" class="card-img-top" alt="ejercicio 34">
                 <div class="card-body">
                     <h5 class="card-title">Ejercicio 34</h5>
-                    <p class="card-text">Crea una paginación para el listado de usuarios. 
+                    <p class="card-text">Crea una paginación para el listado de usuarios.
                     </p>
                     <a href="#" class="btn btn-primary">Ir al ejercicio</a>
                 </div>

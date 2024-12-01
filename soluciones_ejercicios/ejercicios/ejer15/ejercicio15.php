@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 15</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,10 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 15</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Escribe un programa que compruebe si una variable esta vacía y si está vacía, rellenarla con texto en minúsculas y mostrarlo convertido a mayúsculas
+            en negrita.</h3>
     </div>
 
     <!--Botones-->
@@ -33,18 +34,22 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
 
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
+        //Variable
+        $variable = "ee";
+
+        if (empty($variable)) {
+            echo "La variable está vacía";
+        } else {
+            //En caso de no estar vacía
+            echo "La variable no está vacía";
+            //Pasamos a mayúsculas
+            $mayusculas = strtoupper($variable);
+            // Mostrar el texto en negrita
+            echo "</br><strong>$mayusculas</strong>";
         }
+
+
         ?>
     </div>
 </body>

@@ -18,7 +18,7 @@
     <div class="container text-center">
         <h1>Ejercicio 2</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Ejercicio 2. Escribe un programa(bucle for) que imprima por pantalla los cuadrados (el número multiplicado por sí mismo) de los 30 primeros números naturales.
+        <h3 class="titulo_ejercicio fst-italic">Ejercicio 2. Escribe un programa(bucle for) que imprima por pantalla los cuadrados (el número multiplicado por sí mismo) de los 30 primeros números naturales.</h3>
 
     </div>
 

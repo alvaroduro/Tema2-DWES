@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 13</title>
     <!--Incluimos BS-->
     <?php require '../includes/boostrap.php'; ?>
     <style>
@@ -16,9 +16,10 @@
 
 <body>
     <div class="container text-center">
-        <h1>Ejercicio 3</h1>
+        <h1>Ejercicio 13</h1>
         <?php require '../includes/nav.php'; ?>
-        <h3 class="titulo_ejercicio fst-italic">Modifica el ejercicio anterior para que muestre al lado de cada cuadrado si es un número par o impar.</h3>
+        <h3 class="titulo_ejercicio fst-italic">Escribe un programa que muestre la dirección IP del usuario que
+            visita nuestra web y si usa Firefox darle la enhorabuena.</h3>
     </div>
 
     <!--Botones-->
@@ -33,17 +34,21 @@
 
         <!--Solucion Ejercicio-->
         <?php
-        $cuadrado;
-        //Variables
-        for ($i = 1; $i <= 30; $i++) {
-            $cuadrado = $i * $i;
+        // Obtener la dirección IP del usuario
+        $ipUsuario = $_SERVER['REMOTE_ADDR'];
 
-            //Comprobamos si es par o impar
-            if ($cuadrado % 2 == 0) {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>par</b> </br>";
-            } else {
-                echo "El cuadrado de <b>$i</b> es:   <i>$cuadrado</i> y es <b>impar</b> </br>";
-            }
+        // Obtener el User-Agent del navegador
+        $navegador = $_SERVER['HTTP_USER_AGENT'];
+        var_dump($navegador);
+
+        // Mostrar la dirección IP del usuario
+        echo "Tu dirección IP es: $ipUsuario<br>";
+
+        // Verificar si el usuario usa Firefox
+        if (strpos($navegador, 'Firefox') !== false) {
+            echo "¡Enhorabuena! Estás usando Firefox, un navegador excelente. 🦊";
+        } else {
+            echo "Parece que no estás usando Firefox. Considera probarlo. 😊";
         }
         ?>
     </div>
