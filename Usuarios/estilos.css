@@ -12,19 +12,17 @@
 }
 
 .enlacesPrincipal {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-a {
-    font-size: 100px; /* Tamaño del texto */
-    width: 40%;
-    border-radius: 5px; /* Esquinas redondeadas */
-    text-align: center; /* Centra el texto dentro del enlace */
-    padding: 10px 20px; /* Espaciado interno */
+.enlacesPrincipal a {
+  width: 40%;
+  border-radius: 5px; /* Esquinas redondeadas */
+  text-align: center; /* Centra el texto dentro del enlace */
 }
 
 /* Cambio de color al pasar el cursor */
-a:hover {
+.enlacesPrincipal a:hover {
   background-color: rgb(23, 163, 176); /* Cambia el color al pasar el mouse */
   color: lightgray; /* Cambia el color del texto */
 }
@@ -45,12 +43,13 @@ a:hover {
   .enlacesPrincipal {
     display: block;
     font-size: 25px;
-}
+  }
 }
 
 @media (min-width: 500px) {
-    .enlacesPrincipal {
-        display: flex;
-        flex-direction: column;
-        font-size: 18px;}
+  .enlacesPrincipal {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+  }
 }

@@ -27,7 +27,7 @@
 <body>
     <!--Navegación-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand" href="../index.php">INICIO</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -49,6 +49,7 @@
     </nav>
     <!--TITULO PRINCIPAL-->
     <h1 class="text-center my-3">CRUD USUARIOS Apuntes</h1>
+    <?php require_once 'config.php';?> 
     <!--PRINCIPAL-->
     <div class="container">
         <!--Titulo-->
@@ -62,10 +63,10 @@
         <div class="container my-3 enlacesPrincipal">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/clouds/100/right.png" alt="right"/>Listar Usuarios</a>
+                    <a class="nav-link" href="#"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/clouds/100/right.png" alt="right" />Listar Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/bubbles/100/right.png" alt="right"/>Añadir Usuario</a>
+                    <a class="nav-link" href="#"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/bubbles/100/right.png" alt="right" />Añadir Usuario</a>
                 </li>
             </ul>
         </div>
