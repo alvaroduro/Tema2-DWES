@@ -93,13 +93,14 @@
     <?php echo "</br>" . $msgresultado; ?>
     <!--Creamos tabla para la -->
     <table class="table table-striped tablaListar w-75">
-        <th colspan="2" class="text-center fs-3">TABLA USUARIOS</th>
+        <th colspan="3" class="text-center fs-3">TABLA USUARIOS</th>
         <!--Fila-->
         <tr>
             <!--Columnas Encabezados-->
             <th>Nombre</th>
             <!--<th>Password</th>-->
             <th>Email</th>
+            <th>Operaciones</th>
         </tr>
         <?php
         //Insertamos los datos traidos
@@ -109,6 +110,8 @@
             echo '<td>' . $fila['nombre'] . '</td>';
             //echo '<td>' . $fila['password'] . '</td>';
             echo '<td>' . $fila['email'] . '</td>';
+            //Insertamos una columna para actualizar datos
+            echo '<td>' . '<a class="btn btn-secondary" href="actuser.php?id='.$fila['id'].'">Editar<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="17" height="17" viewBox="0 0 40 40">' . '</td>';
             echo '</tr>';
         }
         ?>
