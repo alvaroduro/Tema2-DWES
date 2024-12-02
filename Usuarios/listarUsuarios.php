@@ -48,7 +48,36 @@
         </div>
     </nav>
     <!--TITULO PRINCIPAL-->
-    <h1 class="text-center my-3">CRUD USUARIOS Apuntes</h1>
+    <div class="container d-flex justify-content-between my-3">
+        <h1 class="text-center">Listar Usuarios</h1>
+        <a class="navbar-brand fs-5" href="index.php"><img class="mx-2" width="30" height="30" src="https://img.icons8.com/flat-round/50/back--v1.png" alt="back--v1" />Atrás</a>
+    </div>
+
+    <!--------------------------------CODIGO PHP-------------------------------------------->
+    <?php
+    require_once 'config.php';
+    //Listar Usuarios con tabla
+    //Mensaje que indica al usuario si se realizao correctamente o no la consulta
+    $msgresultado = "";
+
+    //Generamos el listado de usuarios
+    try {
+
+        //Conectamos en la BD y lo guardamos
+        $query = "SELECT * FROM usuarios";
+        $resultado = $conexion->prepare($query);
+        $resultado->execute();
+
+        //Si hay datos en la consulta
+        if ($resultado) {
+            $msgresultado = '<div class="alert alert-success">' . "La consulta se realizó correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+        } //o no
+    } catch (PDOException $ex) {
+        $msgresultado = '<div class="alert alert-success w-100">' . "Fallo al realizar al consulta a la Base de Datos!!" . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
+        //die();
+    }
+
+    ?>
     <!--PRINCIPAL-->
     <div class="container">
         <!--Titulo-->
@@ -58,18 +87,33 @@
             <h2>Base de Datos de Usuarios</h2>
             </p>
         </div><!--Fin Titulo-->
-        <!--Enlaces-->
-        <div class="container my-3 enlacesPrincipal">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="listarUsuarios.php"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/clouds/100/right.png" alt="right" />Listar Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><img class="mx-2" width="80" height="80" src="https://img.icons8.com/bubbles/100/right.png" alt="right" />Añadir Usuario</a>
-                </li>
-            </ul>
-        </div>
     </div>
+
+    <!--Mostramos mensaje sobre la consulta-->
+    <?php echo "</br>" . $msgresultado; ?>
+    <!--Creamos tabla para la -->
+    <table class="table table-striped">
+    <th colspan="2" class="text-center fs-3">TABLA USUARIOS</th>
+        <!--Fila-->
+        <tr>
+            <!--Columnas Encabezados-->
+            <th>Nombre</th>
+            <!--<th>Password</th>-->
+            <th>Email</th>
+        </tr>
+        <?php
+        //Insertamos los datos traidos
+        while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
+            //Mostramos los datos en la tabla
+            echo '<tr>';
+            echo '<td>' . $fila['nombre'] . '</td>';
+            //echo '<td>' . $fila['password'] . '</td>';
+            echo '<td>' . $fila['email'] . '</td>';
+            echo '</tr>';
+        }
+        ?>
+    </table>
+
     <!--JS BOOSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
