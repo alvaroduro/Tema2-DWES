@@ -111,9 +111,11 @@
             //echo '<td>' . $fila['password'] . '</td>';
             echo '<td>' . $fila['email'] . '</td>';
             //Insertamos una columna para actualizar datos
-            echo '<td>' . '<a class="btn btn-secondary" href="actuser.php?id='.$fila['id'].'">Editar<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="17" height="17" viewBox="0 0 40 40">' . '</td>';
+            echo '<td>' . '<a class="btn btn-secondary mx-2" href="actuser.php?id=' . $fila['id'] . '">Editar<img class="mx-2" width="30" height="30" src="https://img.icons8.com/clouds/100/edit.png" alt="edit"></a>' .
+                '<a class="btn btn-danger" href="deluser.php?id=' . $fila['id'] . '">Eliminar<img class="mx-2" width="30" height="30" src="https://img.icons8.com/clouds/100/edit.png" alt="edit"></a>' . '</td>';
             echo '</tr>';
         }
+
         ?>
     </table>
 

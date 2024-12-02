@@ -16,7 +16,7 @@ if (isset($_POST['guardar'])) {
 
         //Definimos la instruccion sql
         try {
-            $sql = "INSERT INTO usuario(nombre, password, email) VALUES (:nombre,:password,:email)";
+            $sql = "INSERT INTO usuarios(nombre, password, email) VALUES (:nombre,:password,:email)";
 
             //Preparamos la consulta
             $query = $conexion->prepare($sql);
