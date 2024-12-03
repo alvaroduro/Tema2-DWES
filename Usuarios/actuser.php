@@ -6,9 +6,13 @@ require_once 'config.php';
 //Mensaje de confirmación
 $msgresultado = "";
 
+//Array validar errores
+$errores = array();
+
 //Variables actualizar
 $valnombre = "";
 $valemail = "";
+$valimagen = "";
 
 //Si se pulsa en Actualizar
 if (isset($_POST['actualizar'])) {
@@ -19,30 +23,80 @@ if (isset($_POST['actualizar'])) {
     //Vemos que los campos no están vacíos
     $nuevonombre = $_POST['txtnombre'];
     $nuevoemail = $_POST['txtemail'];
+    //Insertamos imagen
+    $nuevaimagen = "";
 
-    //Definimos la instruccion sql
-    try {
-        $sql = "UPDATE usuarios SET nombre=:nombre, email=:email WHERE id=:id";
+    //Definimos la variable que almacenara el nombre de la img
+    //Se almacenara en la BD
+    $imagen = NULL;
 
-        //Preparamos la consulta
-        $query = $conexion->prepare($sql);
+    //Comprobamos que el campo tmp_name tiene una valor asignado
+    //Y que hemos recibido la img correctamente
+    if (isset($_FILES['imagen']) && (!empty($_FILES['imagen']['tmp_name']))) {
+        //Comprobamos si existe el directorio img(si no, lo creamos)
+        if (!is_dir("img")) {
+            $imgDire = "directorio mal";
+            $dir = mkdir("img", 0777, true);
+        } else { //Si no, ponemos directorio a true
+            $dir = true;
+            $imgDire = "directorio bien";
+        }
 
-        //Ejecutamos indicando los valores de los parámetros
-        $query->execute(['id' => $id, 'nombre' => $nuevonombre, 'email' => $nuevoemail]);
+        //Verificamos que la carpeta de fotos existe y movemos el fichero a ella
+        if ($dir) {
+            //Aseguramos nombre único
+            $nombreImg = time() . "-" . $_FILES['imagen']['name'];
 
-        //Comprobamos que se ha realizado correctamente
-        if ($query) {
-            $msgresultado = '<div class="alert alert-success mx-2">' . "El usuario se actualizado correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
-        } // o no
+            //Movemos el archivo a nuestra carpeta
+            $moverImg = move_uploaded_file($_FILES['imagen']['tmp_name'], "img/" . $nombreImg);
+            $imagen = $nombreImg;
 
-    } catch (PDOException $ex) {
-        $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Fallo al actualizar usuario a la Base de Datos!!<br/>" . $ex->getMessage(). '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
-        //die();
+            //Verificamos la carga si se ha realizado correctamente
+            if ($moverImg) { //En caso de que se haya movido bien
+                $imagenCargada = true;
+            } else {
+                $imagenCargada = false;
+                $errores["imagen"] = "Error al cargar la imagen" . '<img width="30" height="30" src="https://img.icons8.com/bubbles/100/error.png" alt="error"/>';
+            }
+        }
     }
+
+    //Asignamos la nueva imagen
+    $nuevaimagen = $imagen;
+
+    //Vemos si no hay errores
+    if (count($errores) == 0) {
+        //Definimos la instruccion sql
+        try {
+            $sql = "UPDATE usuarios SET nombre=:nombre, email=:email, imagen=:imagen WHERE id=:id";
+
+            //Preparamos la consulta
+            $query = $conexion->prepare($sql);
+
+            //Ejecutamos indicando los valores de los parámetros
+            $query->execute(['id' => $id, 'nombre' => $nuevonombre, 'email' => $nuevoemail, 'imagen' => $nuevaimagen]);
+
+            //Comprobamos que se ha realizado correctamente
+            if ($query) {
+                $msgresultado = '<div class="alert alert-success mx-2">' . "El usuario se actualizado correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+            } // o no
+
+        } catch (PDOException $ex) {
+            $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Fallo al actualizar usuario a la Base de Datos!!<br/>" . $ex->getMessage() . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
+            die();
+        }
+    } else {
+        $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Error al actualizar usuario a la Base de Datos!!<br/>" . $ex->getMessage() . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
+    }
+
+
 
     //Obtenemos los valores para ponerlos en los campos
     $valnombre = $nuevonombre;
     $valemail = $nuevoemail;
+    $valimagen = $nuevaimagen;
+
+    //Si no se pulsa en actualizar
 } else {
     //Vamos a rellenar los campos
     if (isset($_GET['id']) && (is_numeric($_GET['id']))) { //Si tenemos el id y es número
@@ -59,17 +113,18 @@ if (isset($_POST['actualizar'])) {
 
             //Si hay datos en la consulta
             if ($resultado) {
-                $msgresultado = '<div class="alert alert-success mx-2">' . "Los datos se obtuvieron correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+                $msgresultado = '<div class="alert alert-success mx-2">' . "Los datos se obtuvieron correctamente(actualizar)!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
 
                 //Insertamos los datos traidos
                 $fila = $resultado->fetch(PDO::FETCH_ASSOC);
                 //Guardamos en las variables
                 $valnombre = $fila['nombre'];
                 $valemail = $fila['email'];
+                $valimagen = $fila['imagen'];
             }
         } catch (PDOException $ex) {
-            $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Los datos no se obtuvieron correctamente!!</br>" . $ex->getMessage() . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
-            //die();
+            $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Los datos no se obtuvieron correctamente(actualizar)!!</br>" . $ex->getMessage() . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
+            die();
         }
     }
 }
@@ -78,6 +133,7 @@ if (isset($_POST['actualizar'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,14 +202,21 @@ if (isset($_POST['actualizar'])) {
 
         <!--Formulario-->
         <div class="formulario my-2">
-            <form action="actuser.php" method="post">
+            <form action="actuser.php" method="post" enctype="multipart/form-data">
                 <label for="txtnombre">Nombre</label>
                 <input type="text" class="form-control" name="txtnombre" required value="<?php echo $valnombre ?>"></br>
                 <label for="txtemail">Email</label>
                 <input type="text" class="form-control" name="txtemail" value="<?php echo $valemail ?>"></br>
                 <label for="txtpass">Password</label>
                 <input type="text" class="form-control" name="txtpass" disabled></br>
-                <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>"></br>
+                <!--Campo oculto del id-->
+                <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>">
+                <?php if ($valimagen != null) { ?>
+                    <img src="img/<?php echo $valimagen; ?>"
+                        width="60" /></br>
+                <?php } ?>
+                <label for="imagen">Actuzalizar Imagen</label></br>
+                <input type="file" name="imagen" class="form-control"><br />
                 <input type="submit" value="Actualizar" class="btn btn-success" name="actualizar">
             </form>
         </div>

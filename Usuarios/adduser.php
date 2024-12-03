@@ -5,6 +5,10 @@ require_once 'config.php';
 
 //Mensaje de confirmación
 $msgresultado = "";
+$msgresultadoimg = "";
+
+//Array asociativo con los posibles errores en cada campos
+$errores = array();
 
 //Si se pulsa en Guardar
 if (isset($_POST['guardar'])) {
@@ -14,24 +18,73 @@ if (isset($_POST['guardar'])) {
         $password = sha1($_POST['txtpass']);
         $email = $_POST['txtemail'];
 
-        //Definimos la instruccion sql
-        try {
-            $sql = "INSERT INTO usuarios(nombre, password, email) VALUES (:nombre,:password,:email)";
+        //Tratamos la imagen -Definimos su variable a null
+        //En caso de almacenar la img en la BD
+        $imagen = NULL;
 
-            //Preparamos la consulta
-            $query = $conexion->prepare($sql);
+        //Comprobamos que el campo tmp_name tiene una valor asignado
+        //Y que hemos recibido la img correctamente
+        if (isset($_FILES['imagen']) && (!empty($_FILES['imagen']['tmp_name']))) {
+            //Comprobamos si existe el directorio img(si no, lo creamos)
+            if (!is_dir("img")) {
+                $imgDire = "directorio mal";
+                $dir = mkdir("img", 0777, true);
+            } else { //Si no, ponemos directorio a true
+                $dir = true;
+                $imgDire = "directorio bien";
+            }
 
-            //Ejecutamos indicando los valores de los parámetros
-            $query->execute(['nombre' => $nombre, 'password' => $password, 'email' => $email]);
+            //Verificamos que la carpeta de fotos existe y movemos el fichero a ella
+            if ($dir) {
+                //Aseguramos nombre único
+                $nombreImg = time() . "-" . $_FILES['imagen']['name'];
 
-            //Comprobamos que se ha realizado correctamente
-            if ($query) {
-                $msgresultado = '<div class="alert alert-success mx-2">' . "El usuario se registró correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
-            } // o no
+                //Movemos el archivo a nuestra carpeta
+                $moverImg = move_uploaded_file($_FILES['imagen']['tmp_name'], "img/" . $nombreImg);
+                $imagen = $nombreImg;
 
-        } catch (PDOException $ex) {
-            $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Fallo al insertar usuario a la Base de Datos!!" . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
-            //die();
+                //Verificamos la carga si se ha realizado correctamente
+                if ($moverImg) { //En caso de que se haya movido bien
+                    $imagenCargada = true;
+                    $msgresultadoimg = '<div class="alert alert-success mx-2">' . "cargada bien!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+                } else {
+                    $imagenCargada = false;
+                    $errores["imagen"] = "Error al cargar la imagen" . '<img width="30" height="30" src="https://img.icons8.com/bubbles/100/error.png" alt="error"/>';
+                    $msgresultadoimg = '<div class="alert alert-success mx-2">' . "Error img no cargada!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+                }
+            }
+        } else {
+            $msgresultadoimg = '<div class="alert alert-success mx-2">' . "Error img vacía o no recibida!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+        }
+
+        //Si no hay errores
+        if (count($errores) == 0) {
+            $msgresultadoimg = '<div class="alert alert-success mx-2">' . "Si no  hay errores!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+            //Definimos la instruccion sql
+            try {
+                $sql = "INSERT INTO usuarios(nombre, password, email, imagen) 
+                VALUES (:nombre,:password,:email,:imagen)";
+
+                //Preparamos la consulta
+                $query = $conexion->prepare($sql);
+
+                //Ejecutamos indicando los valores de los parámetros
+                $query->execute([
+                    'nombre' => $nombre,
+                    'password' => $password,
+                    'email' => $email,
+                    'imagen' => $imagen,
+                ]);
+
+                //Comprobamos que se ha realizado correctamente
+                if ($query) {
+                    $msgresultado = '<div class="alert alert-success mx-2">' . "El usuario se registró correctamente!!" . '<img width="50" height="50" src="https://img.icons8.com/clouds/100/ok-hand.png" alt="ok-hand"/></div>';
+                } // o no
+
+            } catch (PDOException $ex) {
+                $msgresultado = '<div class="alert alert-danger w-100 mx-2">' . "Fallo al insertar usuario a la Base de Datos!!" . '<img class="mx-2" width="40" height="40" src="https://img.icons8.com/cute-clipart/64/error.png" alt="error"/></div>';
+                die();
+            }
         }
     }
 }
@@ -109,13 +162,15 @@ if (isset($_POST['guardar'])) {
 
         <!--Formulario-->
         <div class="formulario my-2">
-            <form action="adduser.php" method="post">
+            <form action="adduser.php" method="post" enctype="multipart/form-data">
                 <label for="txtnombre">Nombre</label>
                 <input type="text" class="form-control" name="txtnombre" required></br>
                 <label for="txtemail">Email</label>
                 <input type="text" class="form-control" name="txtemail"></br>
                 <label for="txtpass">Password</label>
                 <input type="text" class="form-control" name="txtpass" required></br>
+                <label for="imagen">Imagen</label>
+                <input type="file" name="imagen" class="form-control"><br />
                 <input type="submit" value="Guardar" class="btn btn-success" name="guardar">
             </form>
         </div>

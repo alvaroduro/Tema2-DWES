@@ -93,26 +93,38 @@
     <?php echo "</br>" . $msgresultado; ?>
     <!--Creamos tabla para la -->
     <table class="table table-striped tablaListar w-75">
-        <th colspan="3" class="text-center fs-3">TABLA USUARIOS</th>
+        <th colspan="5" class="text-center fs-3">TABLA USUARIOS</th>
         <!--Fila-->
         <tr>
             <!--Columnas Encabezados-->
-            <th>Nombre</th>
+            <th class="text-center">Nombre</th>
             <!--<th>Password</th>-->
-            <th>Email</th>
-            <th>Operaciones</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Foto</th>
+            <th class="text-center">Operaciones</th>
         </tr>
         <?php
         //Insertamos los datos traidos
         while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
             //Mostramos los datos en la tabla
             echo '<tr>';
-            echo '<td>' . $fila['nombre'] . '</td>';
+            echo '<td class="text-center">' . $fila['nombre'] . '</td>';
             //echo '<td>' . $fila['password'] . '</td>';
-            echo '<td>' . $fila['email'] . '</td>';
+            echo '<td class="text-center">' . $fila['email'] . '</td>';
+            echo '<td class="text-center">';
+            //Comprobamos si la imagen está vacía
+            if ($fila['imagen'] != null) {
+                //En caso de no ser nula guardamos la foto en la ruta
+                echo '<img src="img/' . $fila['imagen'] . '" width="30" height="30" />' . $fila['imagen'];
+            } else {
+                echo "---";
+            }
+            echo '</td>';
+
             //Insertamos una columna para actualizar datos
-            echo '<td>' . '<a class="btn btn-secondary mx-2" href="actuser.php?id=' . $fila['id'] . '">Editar<img class="mx-2" width="30" height="30" src="https://img.icons8.com/clouds/100/edit.png" alt="edit"></a>' .
+            echo '<td class="text-center">' . '<a class="btn btn-secondary mx-2" href="actuser.php?id=' . $fila['id'] . '">Editar<img class="mx-2" width="30" height="30" src="https://img.icons8.com/clouds/100/edit.png" alt="edit"></a>' .
                 '<a class="btn btn-danger" href="deluser.php?id=' . $fila['id'] . '">Eliminar<img class="mx-2" width="30" height="30" src="https://img.icons8.com/clouds/100/edit.png" alt="edit"></a>' . '</td>';
+
             echo '</tr>';
         }
 
